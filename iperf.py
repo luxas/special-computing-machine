@@ -50,7 +50,6 @@ def run_tcp_dual(ip_address, filename):
     subprocess.run(["/bin/bash", "-c", "iperf3 -c {} --bidir --json > {}".format(ip_address, filename)])
 
     # Fixup the invalid JSON syntax
-    #subprocess.run(["/bin/bash", "-c", 'sed "1,// s/sum_sent/sum_sent_first/" -i {}'.format(filename)])
     subprocess.run(["/bin/bash", "-c", 'sed "1,// s/sum_received/sum_received_first/" -i {}'.format(filename)])
 
     with open(filename) as json_file:
