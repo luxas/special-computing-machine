@@ -696,11 +696,9 @@ $EndComp
 Wire Wire Line
 	6850 9950 7050 9950
 Text Notes 12100 8850 0    50   ~ 0
-TODO:\n- Fuse?\n- Input polarity protection?\n- Power switch
+TODO:\n- Fuse?\n- Power switch
 Text Label 7050 9950 0    50   ~ 0
 V_in
-Text Notes 7050 9750 0    50   ~ 0
-TODO: Polarity protection?!!
 Wire Wire Line
 	6850 10150 6900 10150
 $Comp
@@ -1359,10 +1357,10 @@ F 3 "" H 4050 9150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:IRLML9301 Q?
+L Transistor_FET:IRLML9301 Q1
 U 1 1 5EA26248
 P 4050 8600
-F 0 "Q?" V 4392 8600 50  0000 C CNN
+F 0 "Q1" V 4392 8600 50  0000 C CNN
 F 1 "IRLML6344TRPBF" V 4301 8600 50  0000 C CNN
 F 2 "Package_TO_SOT_SMD:SOT-23" H 4250 8525 50  0001 L CIN
 F 3 "https://www.infineon.com/dgdl/irlml6344pbf.pdf?fileId=5546d462533600a4015356689c44262c" H 4050 8600 50  0001 L CNN
@@ -1370,13 +1368,13 @@ F 3 "https://www.infineon.com/dgdl/irlml6344pbf.pdf?fileId=5546d462533600a401535
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:D_Zener_Small D?
+L Device:D_Zener_Small D5
 U 1 1 5EA2A726
 P 4400 8650
-F 0 "D?" V 4354 8718 50  0000 L CNN
+F 0 "D5" V 4354 8718 50  0000 L CNN
 F 1 "10V" V 4445 8718 50  0000 L CNN
-F 2 "" V 4400 8650 50  0001 C CNN
-F 3 "~" V 4400 8650 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-323" V 4400 8650 50  0001 C CNN
+F 3 "https://www.digikey.fi/product-detail/fi/on-semiconductor/MM3Z10VST1G/MM3Z10VST1GOSCT-ND/687054" V 4400 8650 50  0001 C CNN
 	1    4400 8650
 	0    1    1    0   
 $EndComp
@@ -1395,12 +1393,12 @@ Wire Wire Line
 	4050 8850 4050 8900
 Connection ~ 4050 8850
 $Comp
-L Device:R_Small R?
+L Device:R_Small R9
 U 1 1 5EA4E280
 P 4050 9000
-F 0 "R?" H 4109 9046 50  0000 L CNN
+F 0 "R9" H 4109 9046 50  0000 L CNN
 F 1 "100K" H 4109 8955 50  0000 L CNN
-F 2 "" H 4050 9000 50  0001 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 4050 9000 50  0001 C CNN
 F 3 "~" H 4050 9000 50  0001 C CNN
 	1    4050 9000
 	1    0    0    -1  

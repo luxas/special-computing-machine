@@ -4,10 +4,10 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
-Comp ""
+Title "Special Computing Machine Power Distribution Test Board"
+Date "2020-04-22"
+Rev "1"
+Comp "Verneri Hirvonen"
 Comment1 ""
 Comment2 ""
 Comment3 ""
