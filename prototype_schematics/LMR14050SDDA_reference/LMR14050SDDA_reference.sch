@@ -294,7 +294,7 @@ U 1 1 5E9DA227
 P 10100 3800
 F 0 "J1" H 10207 4667 50  0000 C CNN
 F 1 "USB_C_Receptacle_USB2.0" H 10207 4576 50  0000 C CNN
-F 2 "Connector_USB:USB_C_Receptacle_GCT_USB4085" H 10250 3800 50  0001 C CNN
+F 2 "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12" H 10250 3800 50  0001 C CNN
 F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 10250 3800 50  0001 C CNN
 	1    10100 3800
 	1    0    0    -1  
@@ -1194,7 +1194,7 @@ U 1 1 5EA7B416
 P 10100 6450
 F 0 "J10" H 10207 7317 50  0000 C CNN
 F 1 "USB_C_Receptacle_USB2.0" H 10207 7226 50  0000 C CNN
-F 2 "Connector_USB:USB_C_Receptacle_GCT_USB4085" H 10250 6450 50  0001 C CNN
+F 2 "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12" H 10250 6450 50  0001 C CNN
 F 3 "https://www.usb.org/sites/default/files/documents/usb_type-c.zip" H 10250 6450 50  0001 C CNN
 	1    10100 6450
 	1    0    0    -1  
