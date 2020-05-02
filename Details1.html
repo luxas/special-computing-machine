@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Overview1_stylesheet.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Bootstrap CSS
+		============================================ -->
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+	<!-- nalika Icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/nalika-icon.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="bulma-0.8.2/css/bulma.css">
+    <script defer src="fontawesome-free-5.13.0-web/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="debug.css"> -->
+</head>
+<body>
+<!--Navigation pills-->
+<section class="hero">
+  <div class="hero-body d-flex justify-content-center">
+    <div class="btn-group btn-group-md">
+      <a href="Control1.html" class="btn btn-success">Cluster</a>               <!--Insert link of the other page-->
+      <a href="Overview1.html" class="btn btn-success">Compute</a>
+      <!-- <a href="Details1.html" class="btn btn-success">Details</a> -->
+    </div>
+  </div>
+</section>
+
+<!-- Control/Info/Buttons -->
+<section class="section">
+  <div class="container">
+
+    <!-- Pi Selection -->
+    <div class="buttons">
+      <button class="button is-primary is-outlined" href="#">All</a>
+      <button class="nav-link dropdown-toggle button is-primary is-outlined" data-toggle="dropdown" href="#">Showing Pi</button>
+      <div class="dropdown-menu" style="z-index: 99">
+        <a class="dropdown-item" href="#">Pi1</a>
+        <a class="dropdown-item" href="#">Pi2</a>
+        <a class="dropdown-item" href="#">Pi3</a>
+        <a class="dropdown-item" href="#">Pi4</a>
+      </div>
+    </div>
+
+    <!-- Utility Records -->
+    <div class="navbar buttons">
+      <button class="button navbar-item button">CPU Usage</button>
+      <button class="button navbar-item button">Memory Usage</button>
+      <button class="button navbar-item button">GPU Usage</button>        
+      <button class="button navbar-item button">Fan Speed</button>
+      <button class="button navbar-item button">Power Usage</button>
+    </div>
+  
+    <!-- The chart -->  
+    <div class="wrapper">
+      <div id="chart"></div>
+      <script>
+        var i = 0;
+          function getData() {
+            if(i<300)
+            {
+              i++;
+              return Math.random();
+            }
+            else
+              window.clearInterval(getData);
+          }
+          
+          Plotly.plot('chart',[{
+              y:[getData()],
+              type:'line'
+
+          }]);
+
+          var cnt = 0;
+          setInterval(function(){
+              Plotly.extendTraces('chart',{ y:[[getData()]]}, [0]);
+              cnt++;
+              if(cnt > 500) {
+                  Plotly.relayout('chart',{
+                      xaxis: {
+                          range: [cnt-500,cnt]
+                      }
+                  });
+              }
+          },15);
+      </script>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
+
+<!-- Dropdown -->
+<!-- <div class="dropdown is-active">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>Dropdown button</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <a href="#" class="dropdown-item">
+        Dropdown item
+      </a>
+      <a class="dropdown-item">
+        Other dropdown item
+      </a>
+      <a href="#" class="dropdown-item is-active">
+        Active dropdown item
+      </a>
+      <a href="#" class="dropdown-item">
+        Other dropdown item
+      </a>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-item">
+        With a divider
+      </a>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Overview1_stylesheet.css">
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+	<!-- nalika Icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/nalika-icon.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="bulma-0.8.2/css/bulma.css">
+    <script defer src="fontawesome-free-5.13.0-web/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="debug.css"> -->
+</head>
+
+
+
+<body>
+<!--Navigation pills-->
+  <section class="hero is-fullheight">
+    <div class="hero-head d-flex justify-content-center"style="padding-top: 55px">
+      <div class="btn-group btn-group-md">
+        <a href="Cluster.html" class="btn btn-success">Cluster</a>               <!--Insert link of the other page-->
+        <a href="Compute.html" class="btn btn-success">Compute</a>
+        <!-- <a href="Details1.html" class="btn btn-success">Details</a> -->
+      </div>
+    </div>
+
+    <!--The rack-->
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+
+          <!-- Pi selection buttons -->
+          <div class="column is-two-fifths">
+            <div class="buttons">
+              <button class="button is-primary is-outlined">Discover Clusters</button>
+            </div>
+            <div class="btn-group-vertical btn-group-lg" style="width: 300px">
+              
+              <!-- Pi Controller -->
+              <button href="#" class="container btn" id="btnPopover" title="Cluster 1" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
+                <div class="columns">
+                  <div class="column is-three-quarters">
+                    <p>Cluster 1</p>
+                  </div>
+                  <div class="column">
+                    <i class="fas fa-toggle-on fa-lg"></i>
+                  </div>
+                </div>
+              </button>
+              <button href="#" class="container btn" id="btnPopover" title="Cluster 2" data-content="CPU: Quad Core 2.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
+                <div class="columns">
+                  <div class="column is-three-quarters">
+                    <p>Cluster 2</p>
+                  </div>
+                  <div class="column">
+                    <i class="fas fa-toggle-on fa-lg"></i>
+                  </div>
+                </div>
+              </button>
+              <button href="#" class="container btn" id="btnPopover" title="Cluster 3" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
+                <div class="columns">
+                  <div class="column is-three-quarters">
+                    <p>Cluster 3</p>
+                  </div>
+                  <div class="column">
+                    <i class="fas fa-toggle-on fa-lg"></i>
+                  </div>
+                </div>
+              </button>
+              <button href="#" class="container btn" id="btnPopover" title="Cluster 4" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
+                <div class="columns">
+                  <div class="column is-three-quarters">
+                    <p>Cluster 4</p>
+                  </div>
+                  <div class="column">
+                    <i class="fas fa-toggle-on fa-lg"></i>
+                  </div>
+                </div>
+              </button>
+              <button href="#" class="button btn is-loading is-warning" id="btnPopover" title="Cluster 1" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover"></button>
+            </div>
+            
+            <!-- Information Pane -->
+            <div class="tile is-child" style="padding-top: 45px;">
+              <article class="tile is-child notification" style="color: black; background-color:rgba(255, 245, 157, 0.671);"> 
+                <div class="content">
+                  <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
+                  <p class="subtitle is-size-6">Number of Pi's:</p>
+                  <p class="subtitle is-size-6">PSU status:</p>
+                  <p class="subtitle is-size-6">Firmware Ver:</p>
+                  <p class="subtitle is-size-6">Average Temperature:</p>
+                  <p class="subtitle is-size-6">Power status:</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          
+          <!-- Fan Speed -->
+          <div class="column">
+            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+              <h4 class="text-left text-uppercase"><b>Fan</b></h4>
+              <div class="row vertical-center-box vertical-center-box-tablet">
+                  <div class="col-xs-3 mar-bot-15 text-left">
+                      <label class="label bg-green">On</label>
+                  </div>
+                  <div class="col-xs-9 cus-gh-hd-pro">
+                      <h2 class="text-right no-margin">15 RPS</h2>
+                  </div>
+              </div>
+              <form>
+                <input type="range" class="custom-range" id="customRange" name="points1">
+              </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--End navigation pills-->
+
+
+<!--Enable popover-->
+<script>
+  $(document).ready(function(){
+    $('#btnPopover').popover();
+  });
+</script>
+<!--End of popover-->
+
+</body>
+</html>
