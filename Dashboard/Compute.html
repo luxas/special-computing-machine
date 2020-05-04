@@ -68,7 +68,7 @@
 
     <!--Navigation pills-->
     <div class="hero-head d-flex justify-content-center" style="padding-top: 55px">
-      <div class="btn-group btn-group-md">
+      <div class="btn-group">
         <a href="Cluster.html" class="btn btn-success">Cluster</a>               <!--Insert link of the other page-->
         <a href="Compute.html" class="btn btn-success">Compute</a>
         <!-- <a href="Details1.html" class="btn btn-success">Details</a> -->
@@ -86,44 +86,16 @@
               
               <!-- Pi Controller -->
               <button href="#" class="container btn" id="btnPopover" title="Raspberry Pi 1" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Raspberry Pi 1</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Raspberry Pi 1</p>
               </button>
               <button href="#" class="container btn" id="btnPopover" title="Raspberry Pi 2" data-content="CPU: Quad Core 2.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Raspberry Pi 2</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Raspberry Pi 2</p>
               </button>
               <button href="#" class="container btn" id="btnPopover" title="Raspberry Pi 3" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Raspberry Pi 3</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Raspberry Pi 3</p>
               </button>
               <button href="#" class="container btn" id="btnPopover" title="Raspberry Pi 4" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Raspberry Pi 4</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Raspberry Pi 4</p>
               </button>
             </div>
             
@@ -136,13 +108,16 @@
                   <p class="subtitle is-size-6">PSU status:</p>
                   <p class="subtitle is-size-6">Firmware Ver:</p>
                   <p class="subtitle is-size-6">Average Temperature:</p>
-                  <p class="subtitle is-size-6">Power status:</p>
+                  <div class="level-left">
+                    <p class="subtitle is-size-6 level-item">Power status:</p>
+                    <button class="btn" style="background:none; position: relative; bottom: 6px;"><i class="fas fa-toggle-on fa-lg level-item"></i></button>
+                  </div>
                 </div>
               </article>
             </div>
           </div>
 
-          <!-- Information Pannel -->
+          <!-- System Monitor -->
           <div class="column">
             <!-- <div class="tile is-parent is-vertical">
               <div class="tile is-child notification is-primary">

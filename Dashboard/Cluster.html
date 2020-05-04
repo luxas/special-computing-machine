@@ -64,10 +64,11 @@
 
 
 <body>
-<!--Navigation pills-->
   <section class="hero is-fullheight">
-    <div class="hero-head d-flex justify-content-center"style="padding-top: 55px">
-      <div class="btn-group btn-group-md">
+
+    <!--Navigation pills-->
+    <div class="hero-head d-flex justify-content-center" style="padding-top: 55px">
+      <div class="btn-group">
         <a href="Cluster.html" class="btn btn-success">Cluster</a>               <!--Insert link of the other page-->
         <a href="Compute.html" class="btn btn-success">Compute</a>
         <!-- <a href="Details1.html" class="btn btn-success">Details</a> -->
@@ -81,57 +82,25 @@
 
           <!-- Pi selection buttons -->
           <div class="column is-two-fifths">
-            <div class="buttons">
-              <button class="button is-primary is-outlined">Discover Clusters</button>
-            </div>
             <div class="btn-group-vertical btn-group-lg" style="width: 300px">
               
               <!-- Pi Controller -->
               <button href="#" class="container btn" id="btnPopover" title="Cluster 1" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Cluster 1</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Racks 1</p>
               </button>
               <button href="#" class="container btn" id="btnPopover" title="Cluster 2" data-content="CPU: Quad Core 2.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Cluster 2</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Racks 2</p>
               </button>
               <button href="#" class="container btn" id="btnPopover" title="Cluster 3" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Cluster 3</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Racks 3</p>
               </button>
               <button href="#" class="container btn" id="btnPopover" title="Cluster 4" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <div class="columns">
-                  <div class="column is-three-quarters">
-                    <p>Cluster 4</p>
-                  </div>
-                  <div class="column">
-                    <i class="fas fa-toggle-on fa-lg"></i>
-                  </div>
-                </div>
+                <p>Racks 4</p>
               </button>
-              <button href="#" class="button btn is-loading is-light" id="btnPopover" title="Cluster 1" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover"></button>
             </div>
             
             <!-- Information Pane -->
-            <div class="tile is-child" style="padding-top: 45px;">
+            <div class="tile is-child" style="padding-top: 60px;">
               <article class="tile is-child notification" style="color: black; background-color:rgba(255, 245, 157, 0.671);"> 
                 <div class="content">
                   <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
@@ -139,7 +108,10 @@
                   <p class="subtitle is-size-6">PSU status:</p>
                   <p class="subtitle is-size-6">Firmware Ver:</p>
                   <p class="subtitle is-size-6">Average Temperature:</p>
-                  <p class="subtitle is-size-6">Power status:</p>
+                  <div class="level-left">
+                    <p class="subtitle is-size-6 level-item">Power status:</p>
+                    <button class="btn" style="background:none; position: relative; bottom: 6px;"><i class="fas fa-toggle-on fa-lg level-item"></i></button>
+                  </div>
                 </div>
               </article>
             </div>
@@ -149,6 +121,9 @@
           <!-- Fan Speed -->
           <div class="column">
             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+            <div class="tile is-ancestor justify-content-center">
+              <p class="title is-size-4" style="color: antiquewhite;">Pi 1</p>
+            </div>
               <h4 class="text-left text-uppercase"><b>Fan</b></h4>
               <div class="row vertical-center-box vertical-center-box-tablet">
                   <div class="col-xs-3 mar-bot-15 text-left">
