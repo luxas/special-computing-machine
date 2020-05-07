@@ -64,13 +64,13 @@
 
 
 <body>
-  <section class="hero is-fullheight">
+  <section class="hero" style="background-color: #152036;">
 
     <!--Navigation pills-->
     <div class="hero-head d-flex justify-content-center" style="padding-top: 55px">
       <div class="btn-group">
-        <a href="Cluster.html" class="btn btn-success">Cluster</a>               <!--Insert link of the other page-->
-        <a href="Compute.html" class="btn btn-success text-dark">Compute</a>
+        <a href="Cluster.html" class="btn">Cluster</a>               <!--Insert link of the other page-->
+        <a href="Compute.html" class="btn text-dark">Compute</a>
         <!-- <a href="Details1.html" class="btn btn-success">Details</a> -->
       </div>
     </div>
@@ -80,86 +80,19 @@
       <div class="container">
         <div class="columns">
 
-          <!-- Pi selection buttons -->
-          <div class="column is-two-fifths">
-            <div class="btn-group-vertical btn-group-lg" style="width: 300px">
-              
-              <!-- Pi Controller -->
-              <button href="#" class="container btn disabled" id="btnPopover" title="Raspberry Pi 1" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <p>Rack 1</p>
-              </button>
-              <button href="#" class="container btn" title="Raspberry Pi 1" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <p>Raspberry Pi 1</p>
-              </button>
-              <button href="#" class="container btn" title="Raspberry Pi 2" data-content="CPU: Quad Core 2.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <p>Raspberry Pi 2</p>
-              </button>
-              <button href="#" class="container btn" title="Raspberry Pi 3" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <p>Raspberry Pi 3</p>
-              </button>
-              <button href="#" class="container btn" title="Raspberry Pi 4" data-content="CPU: Quad Core 1.2GHz Broadcom BCM2837 64bit CPU/ RAM: 1GB/ Disk: 64 GB/ OS: Raspbian 10/ Kernel: ..." data-toggle="popover" data-placement="left" data-trigger="hover">
-                <p>Raspberry Pi 4</p>
-              </button>
-            </div>
 
+          <div id="whole_cluster" class="column is-two-fifths">
+             <!-- Pi Controller -->
 
-            
-            
-            <!-- Information Pane -->
-            <div class="tile is-child" style="padding-top: 60px;">
-              <article class="tile is-child notification" style="color: black; background-color:rgb(5, 200, 159);"> 
-                <div class="content">
-                  <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
-                  <p class="subtitle is-size-6">Name:</p>
-                  <p class="subtitle is-size-6">Firmware version:</p>
-                  <p class="subtitle is-size-6">Temperature:    CPU: 75 Celcius    Hat: 50 Celcius</p>
-                  <p class="subtitle is-size-6">CPU:</p>
-                  <p class="subtitle is-size-6">RAM:</p>
-                  <p class="subtitle is-size-6">Motherboard:</p>
-                  <p class="subtitle is-size-6">OS:</p>
-                  <p class="subtitle is-size-6">Kernel:</p>
-                  <div class="level-left">
-                    <p class="subtitle is-size-6 level-item">Power On/Off:</p>
-                    <button class="btn" style="background:none; position: relative; bottom: 6px;"><i class="fas fa-toggle-on fa-lg level-item"></i></button>
-                  </div>
-                </div>
-              </article>
-            </div>
           </div>
+
 
           <!-- System Monitor -->
           <div class="column">
-            <!-- <div class="tile is-parent is-vertical">
-              <div class="tile is-child notification is-primary">
-                <p class="title">CPU</p>
-                <p class="subtitle">2.3/3.8 GHz</p>
-                <progress class="progress is-primary" value="75" max="100">75%</progress>
-              </div>
-              <div class="tile is-child notification is-warning">
-                <p class="title">RAM</p>
-                <p class="subtitle">3.3/7.2 GB</p>
-                <progress class="progress is-primary" value="75" max="100">75%</progress>
-              </div>
-              <div class="tile is-child notification is-primary">
-                <p class="title">DISK</p>
-                <p class="subtitle">1.5/6.5</p>
-                <progress class="progress is-primary" value="75" max="100">75%</progress>
-              </div>
-              <div class="tile is-child notification is-warning">
-                <p class="title">POWER</p>
-                <p class="subtitle">Bottom tile</p>
-                <progress class="progress is-primary" value="75" max="100">75%</progress>
-              </div>
-              <div class="tile is-child notification is-primary">
-                <p class="title">TEMPERATURE</p>
-                <p class="subtitle">Bottom tile</p>
-                <progress class="progress is-primary" value="75" max="100">75%</progress>
-              </div>
-            </div> -->
 
             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
               <div class="tile is-ancestor justify-content-center">
-                <p class="title is-size-2" style="color: antiquewhite;">Pi 1 - Rack 1</p>
+                <p id="big-header" class="title is-size-2" style="color: antiquewhite;">Pi 1 - Rack 1</p>
               </div>
               <h4 class="text-uppercase"><b>CPU</b></h4>
               <div class="row vertical-center-box vertical-center-box-tablet">
@@ -212,11 +145,32 @@
               <progress class="progress is-primary" value="66" max="100">66%</progress>
             </div>
 
-
+            <!-- Information Pane -->
+            <div class="tile is-child" style="padding-top: 20px;">
+              <article class="tile is-child notification" style="color: black; background-color:rgb(5, 200, 159);"> 
+                <div class="content">
+                  <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
+                  <p class="subtitle is-size-6">Name:</p>
+                  <p class="subtitle is-size-6">Firmware version:</p>
+                  <p class="subtitle is-size-6">Temperature:    CPU: 75 Celcius    Hat: 50 Celcius</p>
+                  <p class="subtitle is-size-6">CPU:</p>
+                  <p class="subtitle is-size-6">RAM:</p>
+                  <p class="subtitle is-size-6">Motherboard:</p>
+                  <p class="subtitle is-size-6">OS:</p>
+                  <p class="subtitle is-size-6">Kernel:</p>
+                  <div class="level-left">
+                    <p class="subtitle is-size-6 level-item">Power On/Off:</p>
+                    <button class="btn" style="background:none; position: relative; bottom: 6px;"><i class="fas fa-toggle-on fa-lg level-item"></i></button>
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
+
   </section>
 
 <script>
@@ -224,5 +178,141 @@
     $('#btnPopover').popover();
 });
 </script>
+
+<script>
+
+  var cluster = {                                      //example array
+      name: "Cluster 1",
+      racks: [
+          {
+              name: "Rack 1",
+              firmwareVersion: 1.0,
+              servers: [
+                  {
+                      name: "Pi 1",
+                      cpuModel: "BCM2711",
+                      cpuUsage: 1.5,
+                      poweredOn: true
+                  },
+                  {
+                      name: "Pi 2",
+                      cpuModel: "BCM2712",
+                      cpuUsage: 2.5,
+                      poweredOn: false
+                  },
+                  {
+                      name: "Pi 3",
+                      cpuModel: "BCM2711",
+                      cpuUsage: 2.5,
+                      poweredOn: false
+                  },
+                  {
+                      name: "Pi 4",
+                      cpuModel: "BCM2713",
+                      cpuUsage: 2.5,
+                      poweredOn: false
+                  }
+              ]
+          },
+          {
+              name: "Rack 2",
+              firmwareVersion: 2.0,
+              servers: [
+                  {
+                      name: "Pi 1",
+                      cpuModel: "BCM2713",
+                      cpuUsage: 0.5,
+                      poweredOn: true
+                  },
+                  {
+                      name: "Pi 2",
+                      cpuModel: "BCM2711",
+                      cpuUsage: 0.5,
+                      poweredOn: true
+                  },
+                  {
+                      name: "Pi 3",
+                      cpuModel: "BCM2712",
+                      cpuUsage: 2.5,
+                      poweredOn: false
+                  },
+                  {
+                      name: "Pi 4",
+                      cpuModel: "BCM2712",
+                      cpuUsage: 2.5,
+                      poweredOn: false
+                  }
+  
+              ]
+          }
+      ]
+  }
+  
+  
+  
+  function on_pi_click(e){
+    var rackIndex = parseInt(this.getAttribute("data-rack-index"))
+    var serverIndex = parseInt(this.getAttribute("data-server-index"))
+    document.querySelector("#big-header").innerText = "Pi ".concat(serverIndex+1, " - Rack ", rackIndex+1);
+
+  }
+  
+  function on_rack_click(){
+  
+  }
+  
+  
+  /* <div id="whole_cluster" class="column is-two-fifths">
+               <!-- Pi Controller --></div> */
+  
+      // <div class="racks buttons btn-group-vertical btn-group-lg" style="width: 300px">
+      // <button class="container btn disabled">
+      //     <p>Rack 1</p>
+      // </button>
+      // <button class="container btn" onclick="click_a_pi(pi1, 1, 1)">
+      //     <p>Raspberry Pi 1</p>
+      // </button>
+      // <button class="container btn" onclick="click_a_pi(pi2, 2, 1)">
+      //     <p>Raspberry Pi 2</p>
+      // </button>
+      // <button class="container btn" onclick="click_a_pi(pi3, 3, 1)">
+      //     <p>Raspberry Pi 3</p>
+      // </button>
+      // <button class="container btn" onclick="click_a_pi(pi4, 4, 1)">
+      //     <p>Raspberry Pi 4</p>
+      // </button>
+      // </div>
+  
+  
+  // </div>
+  
+  cluster.racks.forEach((rack, racki) => {
+      var one_rack = document.createElement("div")
+      one_rack.className = "racks buttons btn-group-vertical btn-group-lg"
+      one_rack.style.width = "300px"
+  
+      var rack_button = document.createElement("button")
+      rack_button.className="container btn disabled"
+      rack_button.setAttribute("data-rack-index", racki)
+      var rack_name = "Rack ".concat(racki+1)
+      rack_button.textContent = rack_name
+      //rack_button.addEventListener("click", on_rack_click)
+  
+      one_rack.appendChild(rack_button)
+  
+      rack.servers.forEach((server, serveri) => {
+          var server_button = document.createElement("button")
+          server_button.className = "container btn"
+          server_button.textContent = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
+          server_button.setAttribute("data-rack-index", racki)
+          server_button.setAttribute("data-server-index", serveri)
+          server_button.addEventListener("click", on_pi_click)
+          one_rack.appendChild(server_button)
+      })
+      document.querySelector("#whole_cluster").appendChild(one_rack)
+  })  
+  </script>
+
+
 </body>
 </html>
