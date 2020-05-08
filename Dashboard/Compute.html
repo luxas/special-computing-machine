@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Overview</title>
+    <title>Compute</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -92,18 +92,18 @@
 
             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
               <div class="tile is-ancestor justify-content-center">
-                <p id="big-header" class="title is-size-2" style="color: antiquewhite;">Pi 1 - Rack 1</p>
+                <p id="big-header" class="title is-size-2" style="color: antiquewhite;"></p>
               </div>
               <h4 class="text-uppercase"><b>CPU</b></h4>
               <div class="row vertical-center-box vertical-center-box-tablet">
                 <div class="col-xs-3 mar-bot-15 text-left">
-                  <label class="label bg-green">61%</label>
+                  <label id="cpu-percentage" class="label bg-green">0%</label>
                 </div>
                 <div class="col-xs-9 cus-gh-hd-pro">
-                  <h2 class="text-right no-margin">2.3/3.8 GHz</h2>
+                  <h2 id="cpu-usage" class="text-right no-margin"></h2>
                 </div>
               </div>
-              <progress class="progress is-primary" value="75" max="100">75%</progress>
+              <progress id="cpu-progress-bar" class="progress is-primary" value="0" max="100"></progress>
             </div>
 
             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
@@ -153,7 +153,7 @@
                   <p class="subtitle is-size-6">Name:</p>
                   <p class="subtitle is-size-6">Firmware version:</p>
                   <p class="subtitle is-size-6">Temperature:    CPU: 75 Celcius    Hat: 50 Celcius</p>
-                  <p class="subtitle is-size-6">CPU:</p>
+                  <p id="cpu-model" class="subtitle is-size-6">CPU:</p>
                   <p class="subtitle is-size-6">RAM:</p>
                   <p class="subtitle is-size-6">Motherboard:</p>
                   <p class="subtitle is-size-6">OS:</p>
@@ -191,7 +191,7 @@
                   {
                       name: "Pi 1",
                       cpuModel: "BCM2711",
-                      cpuUsage: 1.5,
+                      cpuUsage: 2,
                       poweredOn: true
                   },
                   {
@@ -202,14 +202,14 @@
                   },
                   {
                       name: "Pi 3",
-                      cpuModel: "BCM2711",
-                      cpuUsage: 2.5,
-                      poweredOn: false
+                      cpuModel: "BCM2710",
+                      cpuUsage: 2.4,
+                      poweredOn: true
                   },
                   {
                       name: "Pi 4",
                       cpuModel: "BCM2713",
-                      cpuUsage: 2.5,
+                      cpuUsage: 1.7,
                       poweredOn: false
                   }
               ]
@@ -220,26 +220,26 @@
               servers: [
                   {
                       name: "Pi 1",
-                      cpuModel: "BCM2713",
+                      cpuModel: "BCM2714",
                       cpuUsage: 0.5,
                       poweredOn: true
                   },
                   {
                       name: "Pi 2",
                       cpuModel: "BCM2711",
-                      cpuUsage: 0.5,
+                      cpuUsage: 0.8,
                       poweredOn: true
                   },
                   {
                       name: "Pi 3",
-                      cpuModel: "BCM2712",
+                      cpuModel: "BCM2713",
                       cpuUsage: 2.5,
                       poweredOn: false
                   },
                   {
                       name: "Pi 4",
                       cpuModel: "BCM2712",
-                      cpuUsage: 2.5,
+                      cpuUsage: 2.9,
                       poweredOn: false
                   }
   
@@ -253,8 +253,16 @@
   function on_pi_click(e){
     var rackIndex = parseInt(this.getAttribute("data-rack-index"))
     var serverIndex = parseInt(this.getAttribute("data-server-index"))
+    var cpuUsage = cluster.racks[rackIndex].servers[serverIndex].cpuUsage
+    var cpuPercentage = Math.round(100*cpuUsage/3)
+    var cpuModel = cluster.racks[rackIndex].servers[serverIndex].cpuModel
     document.querySelector("#big-header").innerText = "Pi ".concat(serverIndex+1, " - Rack ", rackIndex+1);
-
+    document.querySelector("#cpu-percentage").innerText = "".concat(cpuPercentage, "%")
+    document.querySelector("#cpu-usage").innerText = "".concat(cpuUsage, "/3GHz")
+    document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/3).concat("%")
+    document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/3)
+    document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
+  
   }
   
   function on_rack_click(){
