@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Compute</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -56,7 +56,6 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- modernizr JS
 		============================================ -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
     <!-- <link rel="stylesheet" href="debug.css"> -->
@@ -251,9 +250,12 @@
       ]
   }
   
-  
-  
-  function on_pi_click(e){
+  var pow;
+  var sl = 1;  
+  var clicked;
+
+  function on_pi_click(e)
+  {
     var rackIndex = parseInt(this.getAttribute("data-rack-index"))
     var serverIndex = parseInt(this.getAttribute("data-server-index"))
     var cpuUsage = cluster.racks[rackIndex].servers[serverIndex].cpuUsage
@@ -265,18 +267,19 @@
     document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/3).concat("%")
     document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/3)
     document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
-    
-
     document.querySelector("#on-off-button").checked = cluster.racks[rackIndex].servers[serverIndex].poweredOn
-    //document.querySelector("#on-off-button").addEventListener("click", on_off_click(serverIndex, rackIndex))
+    pow = cluster.racks[rackIndex].servers[serverIndex]
+    clicked = document.querySelectorAll('Ser-No=rackIndex+serverIndex+2')
   }
   
   function on_rack_click(e){
   
   }
   
-  function on_off_click(serverIndex, rackIndex){
-      cluster.racks[rackIndex].servers[serverIndex].poweredOn = !(cluster.racks[rackIndex].servers[serverIndex].poweredOn)
+  function on_off_click(e)
+  {
+    pow.poweredOn = !pow.poweredOn
+    // document.querySelector('[Ser-No=]') = clicked.name + " (" + (clicked.poweredOn ? "on" : "off") + ")"
   }
   /* <div id="whole_cluster" class="column is-two-fifths">
                <!-- Pi Controller --></div> */
@@ -322,14 +325,14 @@
           server_button.textContent = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
           server_button.setAttribute("data-rack-index", racki)
           server_button.setAttribute("data-server-index", serveri)
+          server_button.setAttribute("Ser-No", sl)
           server_button.addEventListener("click", on_pi_click)
+          sl++
           one_rack.appendChild(server_button)
       })
       document.querySelector("#whole_cluster").appendChild(one_rack)
-  })  
-
-
-  
+  })
+  document.getElementById("on-off-button").addEventListener("click", on_off_click)
   </script>
 
 
