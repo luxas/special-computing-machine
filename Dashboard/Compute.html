@@ -150,17 +150,20 @@
               <article class="tile is-child notification" style="color: black; background-color:rgb(5, 200, 159);"> 
                 <div class="content">
                   <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
-                  <p class="subtitle is-size-6">Name:</p>
-                  <p class="subtitle is-size-6">Firmware version:</p>
-                  <p class="subtitle is-size-6">Temperature:    CPU: 75 Celcius    Hat: 50 Celcius</p>
-                  <p id="cpu-model" class="subtitle is-size-6">CPU:</p>
-                  <p class="subtitle is-size-6">RAM:</p>
-                  <p class="subtitle is-size-6">Motherboard:</p>
-                  <p class="subtitle is-size-6">OS:</p>
-                  <p class="subtitle is-size-6">Kernel:</p>
+                  <p id="pi-model" class="subtitle is-size-6">Model:</p>
+                  <p id="firm-ver" class="subtitle is-size-6">Firmware version:</p>
+                  <p id="temp" class="subtitle is-size-6">Temperature:    CPU: 75 Celcius    Hat: 50 Celcius</p>
+                  <p id="cpu-model" class="subtitle is-size-6"></p>
+                  <p id="ram-usage" class="subtitle is-size-6">RAM:</p>
+                  <p id="motherboard" class="subtitle is-size-6">Motherboard:</p>
+                  <p id="os" class="subtitle is-size-6">OS:</p>
+                  <p id="kernel" class="subtitle is-size-6">Kernel:</p>
                   <div class="level-left">
                     <p class="subtitle is-size-6 level-item">Power On/Off:</p>
-                    <button class="btn" style="background:none; position: relative; bottom: 6px;"><i class="fas fa-toggle-on fa-lg level-item"></i></button>
+                    <label class="switch">
+                      <input id="on-off-button" type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
                   </div>
                 </div>
               </article>
@@ -262,14 +265,19 @@
     document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/3).concat("%")
     document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/3)
     document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
+    
+
+    document.querySelector("#on-off-button").checked = cluster.racks[rackIndex].servers[serverIndex].poweredOn
+    //document.querySelector("#on-off-button").addEventListener("click", on_off_click(serverIndex, rackIndex))
+  }
+  
+  function on_rack_click(e){
   
   }
   
-  function on_rack_click(){
-  
+  function on_off_click(serverIndex, rackIndex){
+      cluster.racks[rackIndex].servers[serverIndex].poweredOn = !(cluster.racks[rackIndex].servers[serverIndex].poweredOn)
   }
-  
-  
   /* <div id="whole_cluster" class="column is-two-fifths">
                <!-- Pi Controller --></div> */
   
@@ -319,6 +327,9 @@
       })
       document.querySelector("#whole_cluster").appendChild(one_rack)
   })  
+
+
+  
   </script>
 
 
