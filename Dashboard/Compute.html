@@ -250,27 +250,35 @@
       ]
   }
   
-  var pow;
   var sl = 1;  
-  var clicked;
+  var currentlySelectedServer = [cluster.racks[0].servers[0], 0, 0]
 
   function on_pi_click(e)
   {
-    var rackIndex = parseInt(this.getAttribute("data-rack-index"))
-    var serverIndex = parseInt(this.getAttribute("data-server-index"))
-    var cpuUsage = cluster.racks[rackIndex].servers[serverIndex].cpuUsage
-    var cpuPercentage = Math.round(100*cpuUsage/3)
-    var cpuModel = cluster.racks[rackIndex].servers[serverIndex].cpuModel
-    document.querySelector("#big-header").innerText = "Pi ".concat(serverIndex+1, " - Rack ", rackIndex+1);
-    document.querySelector("#cpu-percentage").innerText = "".concat(cpuPercentage, "%")
-    document.querySelector("#cpu-usage").innerText = "".concat(cpuUsage, "/3GHz")
-    document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/3).concat("%")
-    document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/3)
-    document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
-    document.querySelector("#on-off-button").checked = cluster.racks[rackIndex].servers[serverIndex].poweredOn
-    pow = cluster.racks[rackIndex].servers[serverIndex]
-    clicked = document.querySelectorAll('Ser-No=rackIndex+serverIndex+2')
+    var rackIndex = parseInt(e.target.getAttribute("data-rack-index"))
+    var serverIndex = parseInt(e.target.getAttribute("data-server-index"))
+    currentlySelectedServer = [cluster.racks[rackIndex].servers[serverIndex], serverIndex, rackIndex]
+    refreshDashboard()
   }
+
+  function refreshDashboard() {
+      var server = currentlySelectedServer[0]
+      var serverIndex = currentlySelectedServer[1]
+      var rackIndex = currentlySelectedServer[2]
+      
+      var cpuUsage = server.cpuUsage
+      var cpuPercentage = Math.round(100*cpuUsage/3)
+      var cpuModel = server.cpuModel
+      document.querySelector("#big-header").innerText = "Pi ".concat(serverIndex+1, " - Rack ", rackIndex+1);
+      document.querySelector("#cpu-percentage").innerText = "".concat(cpuPercentage, "%")
+      document.querySelector("#cpu-usage").innerText = "".concat(cpuUsage, "/3GHz")
+      document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/3).concat("%")
+      document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/3)
+      document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
+      document.querySelector("#on-off-button").checked = server.poweredOn
+      var nameElement = document.querySelectorAll('[data-server-index="' + serverIndex + '"][data-rack-index="'+ rackIndex + '"]')[0]
+      nameElement.innerHTML = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
+    }
   
   function on_rack_click(e){
   
@@ -278,8 +286,8 @@
   
   function on_off_click(e)
   {
-    pow.poweredOn = !pow.poweredOn
-    // document.querySelector('[Ser-No=]') = clicked.name + " (" + (clicked.poweredOn ? "on" : "off") + ")"
+    currentlySelectedServer[0].poweredOn = !currentlySelectedServer[0].poweredOn
+    refreshDashboard()
   }
   /* <div id="whole_cluster" class="column is-two-fifths">
                <!-- Pi Controller --></div> */
