@@ -22,10 +22,6 @@ body {
 .custom-range::-ms-thumb {
   background: rgba(0, 255, 128);
 }
-layout {
-      plot_bgcolor:"black",
-      paper_bgcolor:"#FFF3"
-};
 
 .nav-item {
   background-color: rgba(0, 255, 128, 0.71);
