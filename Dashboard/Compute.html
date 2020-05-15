@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Compute</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -56,7 +56,6 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- modernizr JS
 		============================================ -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
     <!-- <link rel="stylesheet" href="debug.css"> -->
@@ -97,7 +96,7 @@
               <h4 class="text-uppercase"><b>CPU</b></h4>
               <div class="row vertical-center-box vertical-center-box-tablet">
                 <div class="col-xs-3 mar-bot-15 text-left">
-                  <label id="cpu-percentage" class="label bg-green">0%</label>
+                  <label id="cpu-percentage" class="label bg-green"></label>
                 </div>
                 <div class="col-xs-9 cus-gh-hd-pro">
                   <h2 id="cpu-usage" class="text-right no-margin"></h2>
@@ -110,39 +109,39 @@
               <h4 class="text-uppercase"><b>RAM</b></h4>
               <div class="row vertical-center-box vertical-center-box-tablet">
                 <div class="col-xs-3 mar-bot-15 text-left">
-                  <label class="label bg-green">46%</label>
+                  <label id="ram-percentage" class="label bg-green"></label>
                 </div>
                 <div class="col-xs-9 cus-gh-hd-pro">
-                  <h2 class="text-right no-margin">3.3/7.2 GB</h2>
+                  <h2 id="ram-usage" class="text-right no-margin"></h2>
                 </div>
               </div>
-              <progress class="progress is-primary" value="46" max="100">46%</progress>
+              <progress id="ram-progress-bar" class="progress is-primary" value="0" max="100"></progress>
             </div>
 
             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
               <h4 class="text-uppercase"><b>DISK</b></h4>
               <div class="row vertical-center-box vertical-center-box-tablet">
                 <div class="col-xs-3 mar-bot-15 text-left">
-                  <label class="label bg-green">23%</label>
+                  <label id="disk-percentage" class="label bg-green"></label>
                 </div>
                 <div class="col-xs-9 cus-gh-hd-pro">
-                  <h2 class="text-right no-margin">1.5/6.5 GB</h2>
+                  <h2 id="disk-usage" class="text-right no-margin"></h2>
                 </div>
               </div>
-              <progress class="progress is-primary" value="23" max="100">23%</progress>
+              <progress id="disk-progress-bar" class="progress is-primary" value="0" max="100"></progress>
             </div>
 
             <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
               <h4 class="text-uppercase"><b>Power</b></h4>
               <div class="row vertical-center-box vertical-center-box-tablet">
                 <div class="col-xs-3 mar-bot-15 text-left">
-                  <label class="label bg-green">66%</label>
+                  <label id='power-percentage' class="label bg-green"></label>
                 </div>
                 <div class="col-xs-9 cus-gh-hd-pro">
-                  <h2 class="text-right no-margin">50 W</h2>
+                  <h2 id="power-usage" class="text-right no-margin"></h2>
                 </div>
               </div>
-              <progress class="progress is-primary" value="66" max="100">66%</progress>
+              <progress id="power-progress-bar" class="progress is-primary" value="0" max="100"></progress>
             </div>
 
             <!-- Information Pane -->
@@ -152,9 +151,9 @@
                   <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
                   <p id="pi-model" class="subtitle is-size-6">Model:</p>
                   <p id="firm-ver" class="subtitle is-size-6">Firmware version:</p>
-                  <p id="temp" class="subtitle is-size-6">Temperature:    CPU: 75 Celcius    Hat: 50 Celcius</p>
+                  <p id="temp" class="subtitle is-size-6">Temperature:</p>
                   <p id="cpu-model" class="subtitle is-size-6"></p>
-                  <p id="ram-usage" class="subtitle is-size-6">RAM:</p>
+                  <p id="ram-info" class="subtitle is-size-6">RAM:</p>
                   <p id="motherboard" class="subtitle is-size-6">Motherboard:</p>
                   <p id="os" class="subtitle is-size-6">OS:</p>
                   <p id="kernel" class="subtitle is-size-6">Kernel:</p>
@@ -195,24 +194,84 @@
                       name: "Pi 1",
                       cpuModel: "BCM2711",
                       cpuUsage: 2,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 4,
+                      maxDisk: 32,
+                      maxPower: 25,
+                      model: "Raspberry Pi 4 Model A",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 50,
+                      hatTemp: 52,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: true
                   },
                   {
                       name: "Pi 2",
                       cpuModel: "BCM2712",
-                      cpuUsage: 2.5,
+                      cpuUsage: 2.7,
+                      ramUsage: 2.7,
+                      diskUsage: 7.5,
+                      powerUsage: 12,
+                      maxCPU: 2.9,
+                      maxRAM: 4,
+                      maxDisk: 8,
+                      maxPower: 20,
+                      model: "Raspberry Pi 3",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 38,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: false
                   },
                   {
                       name: "Pi 3",
                       cpuModel: "BCM2710",
                       cpuUsage: 2.4,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "2GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: true
                   },
                   {
                       name: "Pi 4",
                       cpuModel: "BCM2713",
-                      cpuUsage: 1.7,
+                      cpuUsage: 1.9,
+                      ramUsage: 1.6,
+                      diskUsage: 5.2,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 8,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: false
                   }
               ]
@@ -225,24 +284,84 @@
                       name: "Pi 1",
                       cpuModel: "BCM2714",
                       cpuUsage: 0.5,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: true
                   },
                   {
                       name: "Pi 2",
                       cpuModel: "BCM2711",
                       cpuUsage: 0.8,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: true
                   },
                   {
                       name: "Pi 3",
                       cpuModel: "BCM2713",
                       cpuUsage: 2.5,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: false
                   },
                   {
                       name: "Pi 4",
                       cpuModel: "BCM2712",
                       cpuUsage: 2.9,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
                       poweredOn: false
                   }
   
@@ -251,56 +370,84 @@
       ]
   }
   
-  
-  
-  function on_pi_click(e){
-    var rackIndex = parseInt(this.getAttribute("data-rack-index"))
-    var serverIndex = parseInt(this.getAttribute("data-server-index"))
-    var cpuUsage = cluster.racks[rackIndex].servers[serverIndex].cpuUsage
-    var cpuPercentage = Math.round(100*cpuUsage/3)
-    var cpuModel = cluster.racks[rackIndex].servers[serverIndex].cpuModel
-    document.querySelector("#big-header").innerText = "Pi ".concat(serverIndex+1, " - Rack ", rackIndex+1);
-    document.querySelector("#cpu-percentage").innerText = "".concat(cpuPercentage, "%")
-    document.querySelector("#cpu-usage").innerText = "".concat(cpuUsage, "/3GHz")
-    document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/3).concat("%")
-    document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/3)
-    document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
-    
+  var pow;
+  var sl = 1;  
+  var clicked;
+  var currentlySelectedServer = [cluster.racks[0].servers[0], 0, 0]
 
-    document.querySelector("#on-off-button").checked = cluster.racks[rackIndex].servers[serverIndex].poweredOn
-    //document.querySelector("#on-off-button").addEventListener("click", on_off_click(serverIndex, rackIndex))
+  function on_pi_click(e)
+  {
+    var rackIndex = parseInt(e.target.getAttribute("data-rack-index"))
+    var serverIndex = parseInt(e.target.getAttribute("data-server-index"))
+    currentlySelectedServer = [cluster.racks[rackIndex].servers[serverIndex], serverIndex, rackIndex]
+    refreshDashboard()
   }
+
+  function refreshDashboard() {
+      var server = currentlySelectedServer[0]
+      var serverIndex = currentlySelectedServer[1]
+      var rackIndex = currentlySelectedServer[2]
+      
+      var cpuUsage = server.cpuUsage
+      var cpuModel = server.cpuModel
+      var ramUsage = server.ramUsage
+      var diskUsage = server.diskUsage
+      var powerUsage = server.powerUsage
+
+      var maxCPU = server.maxCPU
+      var maxRAM = server.maxRAM
+      var maxDisk = server.maxDisk
+      var maxPower = server.maxPower
+      document.querySelector("#big-header").innerText = "Pi ".concat(serverIndex+1, " - Rack ", rackIndex+1);
+      document.querySelector("#cpu-percentage").innerText = "".concat(Math.round(100*cpuUsage/maxCPU), "%")
+      document.querySelector("#cpu-usage").innerText = "".concat(cpuUsage,"/", maxCPU, "GHz")
+      document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/maxCPU).concat("%")
+      document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/maxCPU)
+      
+      document.querySelector("#ram-percentage").innerText = "".concat(Math.round(100*ramUsage/maxRAM), "%")
+      document.querySelector("#ram-usage").innerText = "".concat(ramUsage, "/", maxRAM, "GB")
+      document.querySelector("#ram-progress-bar").innerHTML = toString(100*ramUsage/maxRAM).concat("%")
+      document.querySelector("#ram-progress-bar").setAttribute("value", 100*ramUsage/maxRAM)
+
+      document.querySelector("#disk-percentage").innerText = "".concat(Math.round(100*diskUsage/maxDisk), "%")
+      document.querySelector("#disk-usage").innerText = "".concat(diskUsage, "/", maxDisk, "GB")
+      document.querySelector("#disk-progress-bar").innerHTML = toString(100*diskUsage/maxDisk).concat("%")
+      document.querySelector("#disk-progress-bar").setAttribute("value", 100*diskUsage/maxDisk)
+
+      document.querySelector("#power-percentage").innerText = "".concat(Math.round(100*powerUsage/maxPower), "%")
+      document.querySelector("#power-usage").innerText = "".concat(powerUsage, "/", maxPower, "GHz")
+      document.querySelector("#power-progress-bar").innerHTML = toString(100*powerUsage/maxPower).concat("%")
+      document.querySelector("#power-progress-bar").setAttribute("value", 100*powerUsage/maxPower)
+     
+      
+      document.querySelector("#pi-model").innerText = "Model: ".concat(server.model) 
+      document.querySelector("#firm-ver").innerText = "Firmware version: ".concat(server.firmwareVer)
+      document.querySelector("#temp").innerText = "Temperature: CPU: ".concat(server.cpuTemp, " Celcius   Hat: ", server.hatTemp, " Celcius")
+      document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
+      document.querySelector("#ram-info").innerText = "RAM: ".concat(server.RAM)
+      document.querySelector("#motherboard").innerText = "Motherboard: ".concat(server.motherboard)
+      document.querySelector("#os").innerText = "Operating System: ".concat(server.os)
+      document.querySelector("#kernel").innerText = "Kernel: ".concat(server.kernel)
+      
+
+      document.querySelector("#on-off-button").checked = server.poweredOn
+      pow = cluster.racks[rackIndex].servers[serverIndex]
+      var nameElement = document.querySelectorAll('[data-server-index="' + serverIndex + '"][data-rack-index="'+ rackIndex + '"]')[0]
+      nameElement.innerHTML = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
+    }
   
   function on_rack_click(e){
   
   }
   
-  function on_off_click(serverIndex, rackIndex){
-      cluster.racks[rackIndex].servers[serverIndex].poweredOn = !(cluster.racks[rackIndex].servers[serverIndex].poweredOn)
+  function on_off_click(e)
+  {
+    currentlySelectedServer[0].poweredOn = !currentlySelectedServer[0].poweredOn
+    refreshDashboard()
   }
-  /* <div id="whole_cluster" class="column is-two-fifths">
-               <!-- Pi Controller --></div> */
-  
-      // <div class="racks buttons btn-group-vertical btn-group-lg" style="width: 300px">
-      // <button class="container btn disabled">
-      //     <p>Rack 1</p>
-      // </button>
-      // <button class="container btn" onclick="click_a_pi(pi1, 1, 1)">
-      //     <p>Raspberry Pi 1</p>
-      // </button>
-      // <button class="container btn" onclick="click_a_pi(pi2, 2, 1)">
-      //     <p>Raspberry Pi 2</p>
-      // </button>
-      // <button class="container btn" onclick="click_a_pi(pi3, 3, 1)">
-      //     <p>Raspberry Pi 3</p>
-      // </button>
-      // <button class="container btn" onclick="click_a_pi(pi4, 4, 1)">
-      //     <p>Raspberry Pi 4</p>
-      // </button>
-      // </div>
-  
-  
-  // </div>
+
+
+
   
   cluster.racks.forEach((rack, racki) => {
       var one_rack = document.createElement("div")
@@ -322,14 +469,14 @@
           server_button.textContent = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
           server_button.setAttribute("data-rack-index", racki)
           server_button.setAttribute("data-server-index", serveri)
+          server_button.setAttribute("Ser-No", sl)
           server_button.addEventListener("click", on_pi_click)
+          sl++
           one_rack.appendChild(server_button)
       })
       document.querySelector("#whole_cluster").appendChild(one_rack)
-  })  
-
-
-  
+  })
+  document.getElementById("on-off-button").addEventListener("click", on_off_click)
   </script>
 
 
