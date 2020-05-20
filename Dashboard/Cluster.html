@@ -99,13 +99,13 @@
             <h4 class="text-uppercase"><b>RAM</b></h4>
             <div class="row vertical-center-box vertical-center-box-tablet">
               <div class="col-xs-3 mar-bot-15 text-left">
-                <label class="label bg-green">46%</label>
+                <label class="label bg-green">62%</label>
               </div>
               <div class="col-xs-9 cus-gh-hd-pro">
-                <h2 class="text-right no-margin">3.3/7.2 GB</h2>
+                <h2 class="text-right no-margin">8.6/14 GB</h2>
               </div>
             </div>
-            <progress class="progress is-primary" value="46" max="100">46%</progress>
+            <progress class="progress is-primary" value="61" max="100">61%</progress>
           </div>
 
           <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
@@ -115,7 +115,7 @@
                 <label class="label bg-green">23%</label>
               </div>
               <div class="col-xs-9 cus-gh-hd-pro">
-                <h2 class="text-right no-margin">1.5/6.5 GB</h2>
+                <h2 class="text-right no-margin">34 /80 GB</h2>
               </div>
             </div>
             <progress class="progress is-primary" value="23" max="100">23%</progress>
@@ -125,13 +125,13 @@
             <h4 class="text-uppercase"><b>Power</b></h4>
             <div class="row vertical-center-box vertical-center-box-tablet">
               <div class="col-xs-3 mar-bot-15 text-left">
-                <label class="label bg-green">66%</label>
+                <label class="label bg-green">63%</label>
               </div>
               <div class="col-xs-9 cus-gh-hd-pro">
-                <h2 class="text-right no-margin">50 W</h2>
+                <h2 class="text-right no-margin">50/80 W</h2>
               </div>
             </div>
-            <progress class="progress is-primary" value="66" max="100">66%</progress>
+            <progress class="progress is-primary" value="63" max="100">63%</progress>
           </div>
         </div>
     
@@ -141,10 +141,11 @@
           <article class="tile is-child notification" style="color: white; background-color:rgb(20, 42, 70);"> 
             <div class="content">
               <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
-              <p class="subtitle is-size-6">Number of Pi's:</p>
-              <p class="subtitle is-size-6">PSU status:</p>
-              <p class="subtitle is-size-6">Firmware Ver(RMC):</p>
-              <p class="subtitle is-size-6">Average Temperature(Celcius):</p>
+              <p class="subtitle is-size-6">Number of Racks: 2</p>
+              <p class="subtitle is-size-6">Number of Active Pi's: 4</p>
+              <p class="subtitle is-size-6">PSU status: 45 W</p>
+              <p class="subtitle is-size-6">Firmware Ver(RMC): v0.1.0</p>
+              <p class="subtitle is-size-6">Average Temperature(Celcius): 48</p>
               
             </div>
           </article>
@@ -162,11 +163,11 @@
                 <label class="label bg-green">On</label>
               </div>
               <div class="col-xs-9 cus-gh-hd-pro">
-                <h2 class="text-right no-margin">15 RPS</h2>
+                <h2 id='fan-speed' class="text-right no-margin">15 RPS</h2>
               </div>
             </div>
             <form>
-              <input type="range" class="custom-range" id="customRange" name="points1">
+              <input id="fan-bar" type="range" class="custom-range" id="customRange" name="points1">
             </form>
           </div>
         </div>
@@ -184,6 +185,11 @@
   });
 </script>
 <!--End of popover-->
+
+
+<script>
+  document.getElementById('fan-speed').innerText = ((document.getElementById("fan-bar").value)*2) + ' RPM'
+</script>
 
 </body>
 </html>
