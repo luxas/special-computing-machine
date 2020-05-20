@@ -415,7 +415,7 @@
       document.querySelector("#disk-progress-bar").setAttribute("value", 100*diskUsage/maxDisk)
 
       document.querySelector("#power-percentage").innerText = "".concat(Math.round(100*powerUsage/maxPower), "%")
-      document.querySelector("#power-usage").innerText = "".concat(powerUsage, "/", maxPower, "GHz")
+      document.querySelector("#power-usage").innerText = "".concat(powerUsage, "/", maxPower, "W")
       document.querySelector("#power-progress-bar").innerHTML = toString(100*powerUsage/maxPower).concat("%")
       document.querySelector("#power-progress-bar").setAttribute("value", 100*powerUsage/maxPower)
      
