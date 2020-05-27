@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--Phoronix Test Suite v9.2.1-->
+<PhoronixTestSuite>
+  <ResultsParser>
+    <OutputTemplate>mbps: #_RESULT_#</OutputTemplate>
+    <LineHint>mbps</LineHint>
+    <ResultScale>Mbits/sec</ResultScale>
+    <ResultProportion>HIB</ResultProportion>
+  </ResultsParser>
+  <ResultsParser>
+    <OutputTemplate>retransmits: #_RESULT_#</OutputTemplate>
+    <LineHint>retransmits</LineHint>
+    <ResultScale>Retransmits</ResultScale>
+    <ResultProportion>LIB</ResultProportion>
+  </ResultsParser>
+  <ResultsParser>
+    <OutputTemplate>mean_rtt_ms: #_RESULT_#</OutputTemplate>
+    <LineHint>mean_rtt_ms</LineHint>
+    <ResultScale>RTT (ms)</ResultScale>
+    <ResultProportion>LIB</ResultProportion>
+  </ResultsParser>
+  <ResultsParser>
+    <OutputTemplate>lost_packet_percent: #_RESULT_#</OutputTemplate>
+    <LineHint>lost_packet_percent</LineHint>
+    <ResultScale>Lost Packet Percent</ResultScale>
+    <ResultProportion>LIB</ResultProportion>
+  </ResultsParser>
+  <ResultsParser>
+    <OutputTemplate>jitter_us: #_RESULT_#</OutputTemplate>
+    <LineHint>jitter_us</LineHint>
+    <ResultScale>Jitter (us)</ResultScale>
+    <ResultProportion>LIB</ResultProportion>
+  </ResultsParser>
+</PhoronixTestSuite>
