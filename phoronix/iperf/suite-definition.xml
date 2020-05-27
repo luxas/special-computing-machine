@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--Phoronix Test Suite v9.4.1-->
+<PhoronixTestSuite>
+  <SuiteInformation>
+    <Title>iperf3</Title>
+    <Version>1.0.0</Version>
+    <TestType>Network</TestType>
+    <Description>iperf benchmarks</Description>
+    <Maintainer>luxas</Maintainer>
+  </SuiteInformation>
+  <Execute>
+    <Test>pts/iperf-1.1.0</Test>
+    <Arguments>IP_ADDRESS -p 5201 -t 30 -b 0 -P 1</Arguments>
+    <Description>Duration: 30 Seconds - Test: TCP - Target Bandwidth: 0 - Parallel: 1</Description>
+    <OverrideTestOptions></OverrideTestOptions>
+  </Execute>
+  <Execute>
+    <Test>pts/iperf-1.1.0</Test>
+    <Arguments>IP_ADDRESS -p 5201 -t 30 --bidir -b 0 -P 1</Arguments>
+    <Description>Duration: 30 Seconds - Test: TCP Bidirectional - Target Bandwidth: 0 - Parallel: 1</Description>
+    <OverrideTestOptions></OverrideTestOptions>
+  </Execute>
+  <Execute>
+    <Test>pts/iperf-1.1.0</Test>
+    <Arguments>IP_ADDRESS -p 5201 -t 30 -u -b 550m -P 1</Arguments>
+    <Description>Duration: 30 Seconds - Test: UDP - Target Bandwidth: 550m - Parallel: 1</Description>
+    <OverrideTestOptions></OverrideTestOptions>
+  </Execute>
+</PhoronixTestSuite>

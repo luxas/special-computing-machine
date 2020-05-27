@@ -1,0 +1,109 @@
+<html>
+    <body>
+        <style>
+            .invisible {
+                display: none;
+            }
+        </style>
+        <div id="racks">
+            <!--Structure of the Javascript-created elements:
+                <div class="rack">
+                    <p data-rack-index="i" onclick="onRackClick()">Alpha</p>
+                    <ul>
+                        <li data-rack-index="i" data-rack-index="0" onclick="onServerClick()">Pi 1</li>
+                        <li data-rack-index="i" data-rack-index="1" onclick="onServerClick()">Pi 2</li>
+                        <li data-rack-index="i" data-rack-index="2" onclick="onServerClick()">Pi 3</li>
+                    </ul>
+                </div>
+            -->
+        </div>
+        <div id="information">
+            <p>Information:</p>
+            <div id="rackInfo">
+                <p>Firmware version: <span class="rackFirmwareVersion"></span></p>
+            </div>
+            <div id="serverInfo">
+                <p>CPU model: <span class="serverCPUModel"></span></p>
+            </div>
+        </div>
+        <script>
+            var cluster = {
+                name: "Cluster 1",
+                racks: [
+                    {
+                        name: "Alpha",
+                        firmwareVersion: 1.0,
+                        servers: [
+                            {
+                                name: "Pi 1",
+                                cpuModel: "BCM2711",
+                                cpuUsage: 1.5,
+                                poweredOn: true
+                            },
+                            {
+                                name: "Pi 2",
+                                cpuModel: "BCM2712",
+                                cpuUsage: 2.5,
+                                poweredOn: false
+                            }
+                        ]
+                    },
+                    {
+                        name: "Beta",
+                        servers: [
+                            {
+                                name: "Pi 4",
+                                cpuModel: "BCM2713",
+                                cpuUsage: 0.5,
+                                poweredOn: true
+                            }
+                        ]
+                    }
+                ]
+            }
+            document.querySelector("#rackInfo").className = "invisible"
+            document.querySelector("#serverInfo").className = "invisible"
+
+            function onServerClick(e) {
+                document.querySelector("#rackInfo").className = "invisible"
+                document.querySelector("#serverInfo").className = ""
+                var rackIndex = parseInt(this.getAttribute("data-rack-index"))
+                var serverIndex = parseInt(this.getAttribute("data-server-index"))
+                var cpuModel = cluster.racks[rackIndex].servers[serverIndex].cpuModel
+                document.querySelector(".serverCPUModel").textContent = cpuModel
+            }
+
+            function onRackClick(e) {
+                document.querySelector("#rackInfo").className = ""
+                document.querySelector("#serverInfo").className = "invisible"
+                var rackIndex = parseInt(this.getAttribute("data-rack-index"))
+                var firmwareVersion = cluster.racks[rackIndex].firmwareVersion
+                document.querySelector(".rackFirmwareVersion").textContent = firmwareVersion
+            }
+
+            cluster.racks.forEach((rack, racki) => {
+                var rackDiv = document.createElement("div")
+                rackDiv.className = "rack"
+
+                var rackNameP = document.createElement("p")
+                rackNameP.textContent = rack.name
+                rackNameP.setAttribute("data-rack-index", racki)
+                rackNameP.addEventListener("click", onRackClick)
+                rackDiv.appendChild(rackNameP)
+
+                var serversUl = document.createElement("ul")
+                rack.servers.forEach((server, serveri) => {
+                    var serverLi = document.createElement("li")
+                    serverLi.textContent = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
+                    serverLi.setAttribute("data-rack-index", racki)
+                    serverLi.setAttribute("data-server-index", serveri)
+                    serverLi.addEventListener("click", onServerClick)
+                    serversUl.appendChild(serverLi)
+                })
+                rackDiv.appendChild(serversUl)
+
+                document.querySelector("#racks").appendChild(rackDiv)
+            })
+        </script>
+    </body>
+</html>

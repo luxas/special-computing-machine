@@ -1,0 +1,94 @@
+html {
+  color : rgb(26, 26, 26);
+}
+body {
+  font-family: "Roboto";
+  background: #1c1b1b;
+}
+
+.btn {
+  background-color: rgb(5, 200, 159);
+  color: rgb(255, 255, 255);
+}
+
+.custom-range::-webkit-slider-thumb {
+  background: rgb(67, 196, 131);
+}
+
+.custom-range::-moz-range-thumb {
+  background: rgba(0, 255, 128);
+}
+
+.custom-range::-ms-thumb {
+  background: rgba(0, 255, 128);
+}
+layout {
+      plot_bgcolor:"black",
+      paper_bgcolor:"#FFF3"
+};
+
+.nav-item {
+  background-color: rgba(0, 255, 128, 0.71);
+  color: white;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: rgba(0, 255, 128);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: white;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px white;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

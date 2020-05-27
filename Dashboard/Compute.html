@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Compute</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Overview1_stylesheet.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+	  <!-- nalika Icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/nalika-icon.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="css/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"></script>
+    <!-- <link rel="stylesheet" href="debug.css"> -->
+</head>
+
+
+<body>
+  <section class="hero" style="background-color: #152036;">
+
+    <!--Navigation pills-->
+    <div class="hero-head d-flex justify-content-center" style="padding-top: 55px">
+      <div class="btn-group">
+        <a href="Cluster.html" class="btn">Cluster</a>               <!--Insert link of the other page-->
+        <a href="Compute.html" class="btn text-dark">Compute</a>
+        <!-- <a href="Details1.html" class="btn btn-success">Details</a> -->
+      </div>
+    </div>
+
+    <!-- content -->
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+
+
+          <div id="whole_cluster" class="column is-two-fifths">
+             <!-- Pi Controller -->
+
+          </div>
+
+
+          <!-- System Monitor -->
+          <div class="column">
+
+            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+              <div class="tile is-ancestor justify-content-center">
+                <p id="big-header" class="title is-size-2" style="color: antiquewhite;"></p>
+              </div>
+              <h4 class="text-uppercase"><b>CPU</b></h4>
+              <div class="row vertical-center-box vertical-center-box-tablet">
+                <div class="col-xs-3 mar-bot-15 text-left">
+                  <label id="cpu-percentage" class="label bg-green"></label>
+                </div>
+                <div class="col-xs-9 cus-gh-hd-pro">
+                  <h2 id="cpu-usage" class="text-right no-margin"></h2>
+                </div>
+              </div>
+              <progress id="cpu-progress-bar" class="progress is-primary" value="0" max="100"></progress>
+            </div>
+
+            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+              <h4 class="text-uppercase"><b>RAM</b></h4>
+              <div class="row vertical-center-box vertical-center-box-tablet">
+                <div class="col-xs-3 mar-bot-15 text-left">
+                  <label id="ram-percentage" class="label bg-green"></label>
+                </div>
+                <div class="col-xs-9 cus-gh-hd-pro">
+                  <h2 id="ram-usage" class="text-right no-margin"></h2>
+                </div>
+              </div>
+              <progress id="ram-progress-bar" class="progress is-primary" value="0" max="100"></progress>
+            </div>
+
+            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+              <h4 class="text-uppercase"><b>DISK</b></h4>
+              <div class="row vertical-center-box vertical-center-box-tablet">
+                <div class="col-xs-3 mar-bot-15 text-left">
+                  <label id="disk-percentage" class="label bg-green"></label>
+                </div>
+                <div class="col-xs-9 cus-gh-hd-pro">
+                  <h2 id="disk-usage" class="text-right no-margin"></h2>
+                </div>
+              </div>
+              <progress id="disk-progress-bar" class="progress is-primary" value="0" max="100"></progress>
+            </div>
+
+            <div class="admin-content analysis-progrebar-ctn res-mg-t-15">
+              <h4 class="text-uppercase"><b>Power</b></h4>
+              <div class="row vertical-center-box vertical-center-box-tablet">
+                <div class="col-xs-3 mar-bot-15 text-left">
+                  <label id='power-percentage' class="label bg-green"></label>
+                </div>
+                <div class="col-xs-9 cus-gh-hd-pro">
+                  <h2 id="power-usage" class="text-right no-margin"></h2>
+                </div>
+              </div>
+              <progress id="power-progress-bar" class="progress is-primary" value="0" max="100"></progress>
+            </div>
+
+            <!-- Information Pane -->
+            <div class="tile is-child" style="padding-top: 20px;">
+              <article class="tile is-child notification" style="color: black; background-color:rgb(5, 200, 159);"> 
+                <div class="content">
+                  <p class="title is-size-4" style="padding-bottom: 9px;">Information</p>
+                  <p id="pi-model" class="subtitle is-size-6">Model:</p>
+                  <p id="firm-ver" class="subtitle is-size-6">Firmware version:</p>
+                  <p id="temp" class="subtitle is-size-6">Temperature:</p>
+                  <p id="cpu-model" class="subtitle is-size-6"></p>
+                  <p id="ram-info" class="subtitle is-size-6">RAM:</p>
+                  <p id="motherboard" class="subtitle is-size-6">Motherboard:</p>
+                  <p id="os" class="subtitle is-size-6">OS:</p>
+                  <p id="kernel" class="subtitle is-size-6">Kernel:</p>
+                  <div class="level-left">
+                    <p class="subtitle is-size-6 level-item">Power On/Off:</p>
+                    <label class="switch">
+                      <input id="on-off-button" type="checkbox">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+<script>
+  $(document).ready(function(){
+    $('#btnPopover').popover();
+});
+</script>
+
+<script>
+
+  var cluster = {                                      //example array
+      name: "Cluster 1",
+      racks: [
+          {
+              name: "Rack 1",  
+              firmwareVersion: 1.0,
+              servers: [
+                  {
+                      name: "Pi 1",
+                      cpuModel: "BCM2711",
+                      cpuUsage: 2,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 4,
+                      maxDisk: 32,
+                      maxPower: 25,
+                      model: "Raspberry Pi 4 Model A",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 50,
+                      hatTemp: 52,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: true
+                  },
+                  {
+                      name: "Pi 2",
+                      cpuModel: "BCM2712",
+                      cpuUsage: 2.7,
+                      ramUsage: 2.7,
+                      diskUsage: 7.5,
+                      powerUsage: 12,
+                      maxCPU: 2.9,
+                      maxRAM: 4,
+                      maxDisk: 8,
+                      maxPower: 20,
+                      model: "Raspberry Pi 3",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 38,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: false
+                  },
+                  {
+                      name: "Pi 3",
+                      cpuModel: "BCM2710",
+                      cpuUsage: 2.4,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "2GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: true
+                  },
+                  {
+                      name: "Pi 4",
+                      cpuModel: "BCM2713",
+                      cpuUsage: 1.9,
+                      ramUsage: 1.6,
+                      diskUsage: 5.2,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 8,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: false
+                  }
+              ]
+          },
+          {
+              name: "Rack 2",
+              firmwareVersion: 2.0,
+              servers: [
+                  {
+                      name: "Pi 1",
+                      cpuModel: "BCM2714",
+                      cpuUsage: 0.5,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: true
+                  },
+                  {
+                      name: "Pi 2",
+                      cpuModel: "BCM2711",
+                      cpuUsage: 0.8,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: true
+                  },
+                  {
+                      name: "Pi 3",
+                      cpuModel: "BCM2713",
+                      cpuUsage: 2.5,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: false
+                  },
+                  {
+                      name: "Pi 4",
+                      cpuModel: "BCM2712",
+                      cpuUsage: 2.9,
+                      ramUsage: 1.5,
+                      diskUsage: 8.5,
+                      powerUsage: 12,
+                      maxCPU: 3.8,
+                      maxRAM: 2,
+                      maxDisk: 16,
+                      maxPower: 20,
+                      model: "Raspberry Pi 4 Model B",
+                      firmwareVer: "v0.1.0",
+                      cpuTemp: 48,
+                      hatTemp: 42,
+                      RAM: "4GB LPDDR4-3200 SDRAM",
+                      motherboard: "",
+                      os: "Raspbian 10",
+                      kernel: "Linux 17.19",
+                      poweredOn: false
+                  }
+  
+              ]
+          }
+      ]
+  }
+  
+  var pow;
+  var sl = 1;  
+  var clicked;
+  var currentlySelectedServer = [cluster.racks[0].servers[0], 0, 0]
+
+  function on_pi_click(e)
+  {
+    var rackIndex = parseInt(e.target.getAttribute("data-rack-index"))
+    var serverIndex = parseInt(e.target.getAttribute("data-server-index"))
+    currentlySelectedServer = [cluster.racks[rackIndex].servers[serverIndex], serverIndex, rackIndex]
+    refreshDashboard()
+  }
+
+  function refreshDashboard() {
+      var server = currentlySelectedServer[0]
+      var serverIndex = currentlySelectedServer[1]
+      var rackIndex = currentlySelectedServer[2]
+      
+      var cpuUsage = server.cpuUsage
+      var cpuModel = server.cpuModel
+      var ramUsage = server.ramUsage
+      var diskUsage = server.diskUsage
+      var powerUsage = server.powerUsage
+
+      var maxCPU = server.maxCPU
+      var maxRAM = server.maxRAM
+      var maxDisk = server.maxDisk
+      var maxPower = server.maxPower
+      document.querySelector("#big-header").innerText = "Pi ".concat(serverIndex+1, " - Rack ", rackIndex+1);
+      document.querySelector("#cpu-percentage").innerText = "".concat(Math.round(100*cpuUsage/maxCPU), "%")
+      document.querySelector("#cpu-usage").innerText = "".concat(cpuUsage,"/", maxCPU, "GHz")
+      document.querySelector("#cpu-progress-bar").innerHTML = toString(100*cpuUsage/maxCPU).concat("%")
+      document.querySelector("#cpu-progress-bar").setAttribute("value", 100*cpuUsage/maxCPU)
+      
+      document.querySelector("#ram-percentage").innerText = "".concat(Math.round(100*ramUsage/maxRAM), "%")
+      document.querySelector("#ram-usage").innerText = "".concat(ramUsage, "/", maxRAM, "GB")
+      document.querySelector("#ram-progress-bar").innerHTML = toString(100*ramUsage/maxRAM).concat("%")
+      document.querySelector("#ram-progress-bar").setAttribute("value", 100*ramUsage/maxRAM)
+
+      document.querySelector("#disk-percentage").innerText = "".concat(Math.round(100*diskUsage/maxDisk), "%")
+      document.querySelector("#disk-usage").innerText = "".concat(diskUsage, "/", maxDisk, "GB")
+      document.querySelector("#disk-progress-bar").innerHTML = toString(100*diskUsage/maxDisk).concat("%")
+      document.querySelector("#disk-progress-bar").setAttribute("value", 100*diskUsage/maxDisk)
+
+      document.querySelector("#power-percentage").innerText = "".concat(Math.round(100*powerUsage/maxPower), "%")
+      document.querySelector("#power-usage").innerText = "".concat(powerUsage, "/", maxPower, "GHz")
+      document.querySelector("#power-progress-bar").innerHTML = toString(100*powerUsage/maxPower).concat("%")
+      document.querySelector("#power-progress-bar").setAttribute("value", 100*powerUsage/maxPower)
+     
+      
+      document.querySelector("#pi-model").innerText = "Model: ".concat(server.model) 
+      document.querySelector("#firm-ver").innerText = "Firmware version: ".concat(server.firmwareVer)
+      document.querySelector("#temp").innerText = "Temperature: CPU: ".concat(server.cpuTemp, " Celcius   Hat: ", server.hatTemp, " Celcius")
+      document.querySelector("#cpu-model").innerText = "CPU: ".concat(cpuModel)
+      document.querySelector("#ram-info").innerText = "RAM: ".concat(server.RAM)
+      document.querySelector("#motherboard").innerText = "Motherboard: ".concat(server.motherboard)
+      document.querySelector("#os").innerText = "Operating System: ".concat(server.os)
+      document.querySelector("#kernel").innerText = "Kernel: ".concat(server.kernel)
+      
+
+      document.querySelector("#on-off-button").checked = server.poweredOn
+      pow = cluster.racks[rackIndex].servers[serverIndex]
+      var nameElement = document.querySelectorAll('[data-server-index="' + serverIndex + '"][data-rack-index="'+ rackIndex + '"]')[0]
+      nameElement.innerHTML = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
+    }
+  
+  function on_rack_click(e){
+  
+  }
+  
+  function on_off_click(e)
+  {
+    currentlySelectedServer[0].poweredOn = !currentlySelectedServer[0].poweredOn
+    refreshDashboard()
+  }
+
+
+
+  
+  cluster.racks.forEach((rack, racki) => {
+      var one_rack = document.createElement("div")
+      one_rack.className = "racks buttons btn-group-vertical btn-group-lg"
+      one_rack.style.width = "300px"
+  
+      var rack_button = document.createElement("button")
+      rack_button.className="container btn disabled"
+      rack_button.setAttribute("data-rack-index", racki)
+      var rack_name = "Rack ".concat(racki+1)
+      rack_button.textContent = rack_name
+      //rack_button.addEventListener("click", on_rack_click)
+  
+      one_rack.appendChild(rack_button)
+  
+      rack.servers.forEach((server, serveri) => {
+          var server_button = document.createElement("button")
+          server_button.className = "container btn"
+          server_button.textContent = server.name + " (" + (server.poweredOn ? "on" : "off") + ")"
+          server_button.setAttribute("data-rack-index", racki)
+          server_button.setAttribute("data-server-index", serveri)
+          server_button.setAttribute("Ser-No", sl)
+          server_button.addEventListener("click", on_pi_click)
+          sl++
+          one_rack.appendChild(server_button)
+      })
+      document.querySelector("#whole_cluster").appendChild(one_rack)
+  })
+  document.getElementById("on-off-button").addEventListener("click", on_off_click)
+  </script>
+
+
+</body>
+</html>
